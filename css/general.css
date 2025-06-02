@@ -1,0 +1,69 @@
+html {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 1.6rem;
+    font-family: "Nunito", sans-serif;
+    /*background-color: rgb(68, 68, 68);*/
+    /*background-image: linear-gradient(#0401b0, #0c0244 61px, #b75d25 30%,  #5f1b04 );*/
+    /*background-image: linear-gradient(#0c0244 61px, #b75d25 25%, #5f1b04 95%);*/
+    background-image: linear-gradient(to bottom left, #0401b0 0%, #0c0244 2%, #b75d25 20%,  #5f1b04 75%);
+    color: #fcfcfe;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.back-button {
+    position: fixed;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    width: 32px;
+    height: 32px;
+    left: 100vw;
+    rotate: 180deg;
+    z-index: 11;
+    transition: left 0.5s ease-in-out;
+}
+
+.img-button {
+    cursor: pointer;
+}
+
+.iframe-slide {
+    position: fixed;
+    top: 0;
+    left: 100vw;
+    width: 100vw;
+    height: 100vh;
+    border: none;
+    z-index: 10;
+    transition: left 0.5s ease-in-out;
+}
+
+.active {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+}
+
+.static {
+    position: relative;
+    z-index: 1;
+}
+
+.static:hover {
+    opacity: 0;
+}

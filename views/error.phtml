@@ -1,0 +1,29 @@
+<h1><?php switch ($errorCode) {
+        case 400:
+                echo "{$errorCode}  Bad Request";
+                break;
+        case 401:
+                echo "{$errorCode} Unauthorized";
+                break;
+        case 403:
+                echo "{$errorCode} Forbidden";
+                break;
+        case 404:
+                echo "{$errorCode} Not Found";
+                break;
+        case 500:
+                echo "{$errorCode} Internal Server Error";
+                break;
+        case 502:
+                echo "{$errorCode} Bad Gateway";
+                break;
+        case 503:
+                echo "{$errorCode} Service Unavailable";
+                break;
+        case 504:
+                echo "{$errorCode} Gateway Timeout";
+                break;
+        default:
+                echo "{$errorCode} Unknown error code";
+}?>
+</h1>

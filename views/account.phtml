@@ -1,0 +1,87 @@
+        <div id="toast-container"></div>
+        <div class="change-account-container" id="change-account-container" onclick="closeForm()">
+            <form class="change-account-form username" id="account-username" method="POST" onclick="event.stopPropagation()">
+                <div class="account-desc">
+                    <img class="img-button" src="img/close-button.png" alt="Close button" onclick="closeForm()">
+                    <p class="account-text main">Change your username</p>
+                    <p class="account-text side">Enter a new username and your password.</p>
+                </div>
+                <label for="username">Username</label>
+                <input class="account-input" type="text" id="username" name="username" required>
+                <label for="password">Password</label>
+                <input class="account-input" type="password" id="password-username" name="password-username" required>
+                <button type="button" class="account-button side" onclick="closeForm()">Cancel</button>
+                <input class="account-button main" type="submit" name="submit" value="Change Username">
+            </form>
+            <form class="change-account-form email" id="account-email" method="POST" onclick="event.stopPropagation()">
+                <div class="account-desc">
+                    <img class="img-button" src="img/close-button.png" alt="Close button" onclick="closeForm()">
+                    <p class="account-text main">Change your email</p>
+                    <p class="account-text side">Enter a new email and your password.</p>
+                </div>
+                <label for="email">Email</label>
+                <input class="account-input" type="text" id="email" name="email" required>
+                <label for="password">Password</label>
+                <input class="account-input" type="password" id="password-email" name="password-email" required>
+                <button type="button" class="account-button side" onclick="closeForm()">Cancel</button>
+                <input class="account-button main" type="submit" name="submit" value="Change Email">
+            </form>
+            <form class="change-account-form password" id="account-password" method="POST" onclick="event.stopPropagation()">
+                <div class="account-desc">
+                    <img class="img-button" src="img/close-button.png" alt="Close button"  onclick="closeForm()">
+                    <p class="account-text main">Change your password</p>
+                    <p class="account-text side">Enter your current and new password.</p>
+                </div>
+                <label for="password">Current Password</label>
+                <input class="account-input" type="text" id="password" name="password" required>
+                <label for="password-new">New Password</label>
+                <input class="account-input" type="password" id="password-new" name="password-new" required>
+                <label for="password-new-conf">Confirm New Password</label>
+                <input class="account-input" type="password" id="password-new-conf" name="password-new-conf" required>
+                <button type="button" class="account-button side" onclick="closeForm()">Cancel</button>
+                <input class="account-button main" type="submit" name="submit" value="Change Password">
+            </form>
+        </div>
+        <div class="content account-content">
+            <h1 class="change-data-header-username"><?= $_SESSION["user"]["username"] ?></h1>
+            <div class ="account-wrapper">
+                <div class="personal-wrapper">
+                        <h2 class="change-data-header">Username</h2>
+                        <div class="change-data-wrapper">
+                            <p class="change-data-info"><?= $_SESSION["user"]["username"] ?></p>
+                            <button class="change-data-button" onclick="openForm('username')">Edit</button>
+                        </div>
+                        <h2 class="change-data-header">Email</h2>
+                        <div class="change-data-wrapper">
+                            <p class="change-data-info"><?= $_SESSION["user"]["email"] ?></p>
+                            <button class="change-data-button" onclick="openForm('email')">Edit</button>
+                        </div>
+                        <h2 class="change-data-header">Password</h2>
+                        <div class="change-data-wrapper">
+                            <div></div>
+                            <button class="change-data-button" onclick="openForm('password')">Change password</button>
+                        </div>
+                    <!--<form class="change-data-wrapper" method="POST">
+                        <p>Change username</p>
+                        <input class="change-data-input" type="text" name="username-new" id="username-new" placeholder="New Username" value="<?= $_SESSION["user"]["username"] ?>">
+                        <input class="change-data-input" type="submit" value="Change Username" name="submit" id="change-username-button">
+                    <form/>
+                    <form class="change-data-wrapper" method="POST">
+                        <p>Change email</p>
+                        <input class="change-data-input" type="email" name="email-old" id="email-old" placeholder="Current Email" value="<?= $_SESSION["user"]["email"] ?>" disabled>
+                        <input class="change-data-input" type="email" name="email-new" id="email-new" placeholder="New Email" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$">
+                        <input class="change-data-input" type="submit" value="Change Email" name="submit" id="change-email-button">
+                    </form>
+                    <form class="change-data-wrapper" method="POST">
+                        <p>Change password</p>
+                        <input class="change-data-input" type="password" name="password-old" id="password-old" placeholder="Current Password">
+                        <input class="change-data-input" type="password" name="password-new" id="password-new" placeholder="New Password">
+                        <input class="change-data-input" type="password" name="password-new-confirm" id="password-new-confirm" placeholder="Confirm New Password">
+                        <input class="change-data-input" type="submit" value="Change Password" name="submit" id="change-password-button">
+                    </form>-->
+                </div>
+                <!--<form class="bio-wrapper" method="POST">
+                    <textarea name="bio" id="bio" placeholder="Say something about yourself..."></textarea>
+                </form>-->
+            </div>
+        </div>

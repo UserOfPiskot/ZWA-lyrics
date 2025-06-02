@@ -1,0 +1,19 @@
+    
+        <div class="content login-content">
+            <img src="img/login-background.webp" alt="Blured background image" class="background-image">
+            <form method="POST" class="session-form">
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" class="form-input" required>
+                </div>
+                <div class="password-line">
+                    <label for="password">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" name="password" id="password" class="form-input" required>
+                        <canvas id="password-canvas" alt="Show password" onclick="showPassword()" class="password-toggle img-button"></canvas>
+                    </div>
+                </div>
+                <input class="form-button-main" type="submit" name="submit" value="Log in">
+                <input class="form-button-side" type="submit" name="submit" value="Sign up">
+            </form>
+        </div>

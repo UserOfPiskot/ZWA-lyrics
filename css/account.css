@@ -1,0 +1,109 @@
+#change-account-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(27, 27, 27, 0.301);
+    display: none;
+}
+
+#change-account-container.open{
+    display: block;
+    transition: ease-in;
+}
+
+.change-account-form {
+    position: fixed;
+    inset: 0px;
+    height: 30rem;
+    max-width: 100vw;
+    max-height: 100dvh;
+    padding: 10px;
+    margin: auto;
+    border-radius: 10px;
+    border: 1px solid red;
+    display: none;
+    background-image: linear-gradient(to bottom left, #0401b0 0%, #0c0244 2%, #b75d25 20%,  #5f1b04 75%);
+}
+
+.change-account-form.open {
+    display: inherit;
+}
+
+.account-input {
+    font-family: "Nunito", sans-serif;
+    color: #fcfcfe;
+    border-radius: 20px;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: none;
+    box-sizing: border-box;
+    background-color: #5f1b04;
+    box-shadow: 0 0 5px rgb(38, 38, 38);
+}
+
+.change-data-header-username {
+    margin-left: 20px;
+}
+
+.account-wrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+}
+
+.personal-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #fcfcfe;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.change-data-header {
+    margin: 0;
+}
+
+.change-data-wrapper {
+    margin: 10px;
+    justify-content: space-between;
+}
+
+.change-data-info {
+    margin: 0;
+}
+
+.change-data-button {
+    width: 70px;
+    height: 45px;
+    color: #fcfcfe;
+    background-color: #5f1b04;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 600px) {
+    /*.change-data-wrapper {
+        width: 20vw;
+    }*/
+    .change-account-form {
+        width: 340px;
+    }
+
+    .account-wrapper {
+        padding: 20px;
+    }
+    
+    .personal-wrapper {
+        width: 500px;
+    }
+
+    .change-data-wrapper {
+        display: flex;
+    }
+}

@@ -1,0 +1,22 @@
+ErrorDocument 400 /error.php
+ErrorDocument 401 /error.php
+ErrorDocument 403 /error.php
+ErrorDocument 404 /error.php
+ErrorDocument 500 /error.php
+ErrorDocument 502 /error.php
+ErrorDocument 503 /error.php
+ErrorDocument 504 /error.php
+
+# defaultne kdyz das localhost tak tam hodi index
+DirectoryIndex index.php
+
+RewriteEngine On
+
+# blokne pristup k vecem zacinajicim .
+RewriteCond %{REQUEST_URI} (^|/)\.
+RewriteRule ^ - [F,L]
+
+# Nevim kamo vezme explore jako explore.php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [NC,L]
