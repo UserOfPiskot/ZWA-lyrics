@@ -2,9 +2,9 @@
         <div class="change-account-container" id="change-account-container" onclick="closeForm()">
             <form class="change-account-form username" id="account-username" method="POST" onclick="event.stopPropagation()">
                 <div class="account-desc">
-                    <img class="img-button" src="img/close-button.png" alt="Close button" onclick="closeForm()">
-                    <p class="account-text main">Change your username</p>
-                    <p class="account-text side">Enter a new username and your password.</p>
+                    <img class="img-button" src="/assets/img/close-button.png" alt="Close button" onclick="closeForm()">
+                    <span class="account-text main">Change your username</span>
+                    <span class="account-text side">Enter a new username and your password.</span>
                 </div>
                 <label for="username">Username</label>
                 <input class="account-input" type="text" id="username" name="username" required>
@@ -15,9 +15,9 @@
             </form>
             <form class="change-account-form email" id="account-email" method="POST" onclick="event.stopPropagation()">
                 <div class="account-desc">
-                    <img class="img-button" src="img/close-button.png" alt="Close button" onclick="closeForm()">
-                    <p class="account-text main">Change your email</p>
-                    <p class="account-text side">Enter a new email and your password.</p>
+                    <img class="img-button" src="/assets/img/close-button.png" alt="Close button" onclick="closeForm()">
+                    <span class="account-text main">Change your email</span>
+                    <span class="account-text side">Enter a new email and your password.</span>
                 </div>
                 <label for="email">Email</label>
                 <input class="account-input" type="text" id="email" name="email" required>
@@ -28,9 +28,9 @@
             </form>
             <form class="change-account-form password" id="account-password" method="POST" onclick="event.stopPropagation()">
                 <div class="account-desc">
-                    <img class="img-button" src="img/close-button.png" alt="Close button"  onclick="closeForm()">
-                    <p class="account-text main">Change your password</p>
-                    <p class="account-text side">Enter your current and new password.</p>
+                    <img class="img-button" src="/assets/img/close-button.png" alt="Close button"  onclick="closeForm()">
+                    <span class="account-text main">Change your password</span>
+                    <span class="account-text side">Enter your current and new password.</span>
                 </div>
                 <label for="password">Current Password</label>
                 <input class="account-input" type="text" id="password" name="password" required>
@@ -48,12 +48,12 @@
                 <div class="personal-wrapper">
                         <h2 class="change-data-header">Username</h2>
                         <div class="change-data-wrapper">
-                            <p class="change-data-info"><?= $_SESSION["user"]["username"] ?></p>
+                            <span class="change-data-info"><?= $_SESSION["user"]["username"] ?></span>
                             <button class="change-data-button" onclick="openForm('username')">Edit</button>
                         </div>
                         <h2 class="change-data-header">Email</h2>
                         <div class="change-data-wrapper">
-                            <p class="change-data-info"><?= $_SESSION["user"]["email"] ?></p>
+                            <span class="change-data-info"><?= $_SESSION["user"]["email"] ?></span>
                             <button class="change-data-button" onclick="openForm('email')">Edit</button>
                         </div>
                         <h2 class="change-data-header">Password</h2>

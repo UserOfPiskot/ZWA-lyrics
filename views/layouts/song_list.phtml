@@ -1,0 +1,10 @@
+<div class="content explore-content">
+    <div class="song-list">
+        <?php foreach($songs as $song){ ?>
+        <div class="song-card">
+            <a class="song-artist" href="/artists/<?=$song["artistSlug"]?>"><?=$song["artistName"]?></a>
+            <a class="song-name"  href="/songs/<?=$song["songSlug"]?>"><?=$song["title"]?></a>
+        </div>
+        <?php } ?>
+    </div>
+</div>
