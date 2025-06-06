@@ -13,6 +13,10 @@ DirectoryIndex index.php
 RewriteEngine On
 RewriteBase /
 
+
+Options -Indexes
+
+
 # blokne pristup k slozkam includes, views a config
 <IfModule mod_rewrite.c>
     RewriteRule ^(config|includes|tmp|views)/ - [F,L,NC]
