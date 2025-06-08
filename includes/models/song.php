@@ -4,7 +4,7 @@ function getSongs($db, $searchTerm = null): mysqli_result|bool {
         SELECT songs.*, artists.name AS artistName, artists.artistID AS artistID, artists.artistSlug AS artistSlug
         FROM songs
         JOIN artists ON songs.artistID = artists.artistID
-        WHERE 1=1
+        WHERE 1=1 AND songs.isPublic = 1
     ";
 
     $params = [];
@@ -22,6 +22,17 @@ function getSongs($db, $searchTerm = null): mysqli_result|bool {
     return $songs;
 }
 
+function getArtists($db): mysqli_result|bool {
+    $artistsQuery = "
+        SELECT artists.*
+        FROM artists
+    ";
+    $artists = mysqli_execute_query($db, $artistsQuery);
+    if (!$artists || mysqli_num_rows($artists) === 0) {
+        return false;
+    }
+    return $artists;
+}
 
 function getFromSlug($db, $type, $slug = null): array|bool    {
     $songQuery = "
@@ -48,7 +59,6 @@ function getFromSlug($db, $type, $slug = null): array|bool    {
         "artist"=> $artistQuery
     };
 
-    $slug = $_GET["slug"];
 
     $queryResponse = mysqli_execute_query($db, $slugQuery, [$slug]);
 

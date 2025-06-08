@@ -10,7 +10,7 @@
 
 #change-account-container.open{
     display: block;
-    transition: ease-in;
+    transition: opacity 0.3s ease-in;
 }
 
 .change-account-form {
@@ -22,9 +22,10 @@
     padding: 10px;
     margin: auto;
     border-radius: 10px;
-    border: 1px solid red;
+    border: 1px solid #fcfcfe;
     display: none;
-    background-image: linear-gradient(to bottom left, #0401b0 0%, #0c0244 2%, #b75d25 20%,  #5f1b04 75%);
+    background-color: #0c0244;
+    /*background-image: linear-gradient(to bottom left, #0401b0 0%, #0c0244 2%, #b75d25 20%,  #5f1b04 75%);*/
 }
 
 .change-account-form.open {

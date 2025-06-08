@@ -1,0 +1,18 @@
+<div class="report-list">
+  <?php foreach ($submissions as $submission) { ?>
+  <div class="report-card">
+    <div class="report-header">
+      <span class="report-id">#<?= $submission["songID"] ?></span>
+      <span class="report-type"><?= ucfirst($submission["title"]) ?> by <a href="/artists/<?=$submission["artistSlug"]?>"><?= $submission["artistName"] ?></a></span>
+    </div>
+    <div class="report-body">
+      <p class="report-reason">Genre: <?= htmlspecialchars($submission["genreName"]) ?></p>
+    </div>
+    <div class="report-footer">
+      <span class="report-status"><?= ucfirst($submission["styleID"]) ?></span>
+      <span class="report-date"><?= date("Y-m-d H:i", strtotime($submission["creationTimestamp"])) ?> by <?= $submission["createdByUsername"] ?></span>
+      <button class="resolve-btn">Resolve</button>
+    </div>
+  </div>
+  <?php } ?>
+</div>

@@ -10,6 +10,8 @@ if($songs === false) {
     $songs = [];
 }
 
+$artists = getArtists($conn);
+
 $title = "Explore ". WEB_NAME;
 
 require_once __DIR__ . "/../views/layouts/html_head.phtml";

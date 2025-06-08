@@ -4,8 +4,8 @@ require_once "../config/constants.php";
 
 $title = "Account";
 
-if(!isset($_SESSION["user"])) {
-    header("Location: login?backButton=1");
+if(empty($_SESSION["user"])) {
+    header("Location: /?login=1");
     exit;
 }
 
@@ -55,7 +55,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])){
             case 10:
             case 20:
             case 30:
-                $errorDetails = "An error occured while changing {$errorType}";
+                $errorDetails = "An error occurred while changing {$errorType}";
                 break;
 
             case 11:
@@ -79,8 +79,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])){
                 $errorDetails = "Unknown error code:";
                 break;
         }
-        /*echo "showToast('{$errorDetails} ({$response})', 'error')";
-        echo "<script>showToast('{$errorDetails} ({$response})', 'error')</script>";*/
         echo "<script>
                 window.addEventListener('DOMContentLoaded', () => {
                     showToast('{$errorDetails} ({$response})', 'error');

@@ -1,6 +1,6 @@
 <?php
-define("WEB_NAME","Music idk");
-define("WEB_URL","http://localhost");
+define("WEB_NAME","Akordemon");
+define("WEB_URL","https://akordemon.gigaportal.pl");
 define("ASSET_PATH","/assets/");
 define("BASE_URL","/");
 define("SHOW_MOD_PANEL_LEVEL",2);

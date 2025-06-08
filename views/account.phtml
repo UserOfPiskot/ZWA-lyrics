@@ -1,4 +1,3 @@
-        <div id="toast-container"></div>
         <div class="change-account-container" id="change-account-container" onclick="closeForm()">
             <form class="change-account-form username" id="account-username" method="POST" onclick="event.stopPropagation()">
                 <div class="account-desc">
@@ -61,27 +60,6 @@
                             <div></div>
                             <button class="change-data-button" onclick="openForm('password')">Change password</button>
                         </div>
-                    <!--<form class="change-data-wrapper" method="POST">
-                        <p>Change username</p>
-                        <input class="change-data-input" type="text" name="username-new" id="username-new" placeholder="New Username" value="<?= $_SESSION["user"]["username"] ?>">
-                        <input class="change-data-input" type="submit" value="Change Username" name="submit" id="change-username-button">
-                    <form/>
-                    <form class="change-data-wrapper" method="POST">
-                        <p>Change email</p>
-                        <input class="change-data-input" type="email" name="email-old" id="email-old" placeholder="Current Email" value="<?= $_SESSION["user"]["email"] ?>" disabled>
-                        <input class="change-data-input" type="email" name="email-new" id="email-new" placeholder="New Email" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$">
-                        <input class="change-data-input" type="submit" value="Change Email" name="submit" id="change-email-button">
-                    </form>
-                    <form class="change-data-wrapper" method="POST">
-                        <p>Change password</p>
-                        <input class="change-data-input" type="password" name="password-old" id="password-old" placeholder="Current Password">
-                        <input class="change-data-input" type="password" name="password-new" id="password-new" placeholder="New Password">
-                        <input class="change-data-input" type="password" name="password-new-confirm" id="password-new-confirm" placeholder="Confirm New Password">
-                        <input class="change-data-input" type="submit" value="Change Password" name="submit" id="change-password-button">
-                    </form>-->
                 </div>
-                <!--<form class="bio-wrapper" method="POST">
-                    <textarea name="bio" id="bio" placeholder="Say something about yourself..."></textarea>
-                </form>-->
             </div>
         </div>

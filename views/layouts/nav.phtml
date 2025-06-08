@@ -9,10 +9,10 @@
     </form>
 
 <div class="nav-bar">
-    <a class="nav-button" onclick="redirect_home()">Home</a>
-    <a class="nav-button" onclick="redirect_explore()">Explore</a>
+    <a class="nav-button" href="/">Home</a>
+    <a class="nav-button" href="/explore">Explore</a>
     <?php if (isset($_SESSION["user"]) && $_SESSION["user"]["role"] >= SHOW_MOD_PANEL_LEVEL) {?>
-    <a class="nav-button" onclick="redirect_moderation()">Moderation</a>
+    <a class="nav-button" href="/moderation">Moderation</a>
     <?php } ?>
 </div>      
         <div class="user-menu">

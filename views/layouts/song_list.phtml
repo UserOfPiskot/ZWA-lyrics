@@ -1,4 +1,28 @@
+<!--<div class="submission-container" id="submission-container">
+    <form class="song-submission-form" id="submission-form" method="POST" enctype="multipart/form-data" onclick="event.stopPropagation">
+        <div>
+            <label for="title">Song title</label>
+            <input type="text" name="title" placeholder="Song Title" required>
+        </div>
+        <div>
+            <label for="artist">Artist</label>
+            <input list="artist-list" name="artist" placeholder="Start typing an artist..." required>
+            <datalist id="artist-list">
+                <?php foreach($artists as $artist){ ?>
+                <option value="<?=$artist["name"]?>" artist-id="<?=$artist["artistID"]?>"><?=$artist["name"]?></option>
+                <?php } ?>
+            </datalist>
+        </div>
+        <div>
+            <label for="lyrics">Lyrics</label>
+            <textarea name="lyrics" id="lyrics" placeholder="Write lyrics of the song here..."></textarea>
+        </div>
+        <input type="button" value="Cancel" class="submission-button side" onclick="closeSubmission()">
+        <input type="submit" name="submit" value="Submit" class="submission-button main">
+    </form>
+</div>-->
 <div class="content explore-content">
+    <!--<button>+</button>-->
     <div class="song-list">
         <?php foreach($songs as $song){ ?>
         <div class="song-card">

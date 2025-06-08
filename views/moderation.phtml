@@ -1,0 +1,18 @@
+<div class="content moderation-content">
+    <h1>Moderation</h1>
+    <div class="moderation-actions" id="moderation-actions">
+        <a class="moderation-button" id="moderation-reports" href="#reports" onclick="loadTab('reports')">Reports</a>
+        <a class="moderation-button" id="moderation-submissions" href="#submissions" onclick="loadTab('submissions')">Submissions</a>
+        <a class="moderation-button" id="moderation-flagged" href="#flagged" onclick="loadTab('flagged')">Flagged Users</a>
+        <?php if (isset($_SESSION["user"]) && $_SESSION["user"]["role"] >= ADMIN_ROLE) {?>
+            <a class="moderation-button" id="moderation-adding" href="#adding" onclick="loadTab('adding')">Genre/Style</a>
+            <a class="moderation-button" id="moderation-promote" href="#promote" onclick="loadTab('promote')">Promote</a>
+            <a class="moderation-button" id="moderation-audits" href="#audits" onclick="loadTab('audits')">Audits</a>
+        <?php } ?>
+    </div>
+
+    <div id="moderation-container">
+        
+    </div>
+
+</div>
