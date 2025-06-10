@@ -12,13 +12,19 @@
                 <?php if(isset($_SESSION["user"]["role"]) && $_SESSION["user"]["role"] >= EDIT_CONTENT_FULL) { ?>
                     <p class="song-edit-link" onclick="openOverlayForm('edit', 'form')">Edit</p>
                     <?php if(!$song["isPublic"]) { ?>
-                        <form method="POST">
+                        <form class="song-edit-form" method="POST">
                             <input type="hidden" name="songID" value="<?=$song["songID"]?>">
                             <input type="hidden" name="action" value="publish">
                             <input class="song-publish-button" type="submit" value="Publish">
                         </form>
+                    <?php } else {?>
+                        <form class="song-edit-form" method="POST">
+                            <input type="hidden" name="songID" value="<?=$song["songID"]?>">
+                            <input type="hidden" name="action" value="hide">
+                            <input class="song-publish-button" type="submit" value="Hide">
+                        </form>
                     <?php }?>
-                    <form method="POST">
+                    <form class="song-edit-form" method="POST">
                             <input type="hidden" name="songID" value="<?=$song["songID"]?>">
                             <input type="hidden" name="action" value="delete">
                             <input class="song-publish-button" type="submit" value="Delete">

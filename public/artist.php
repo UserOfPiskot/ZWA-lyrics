@@ -5,6 +5,7 @@ require_once __DIR__ . "/../config/constants.php";
 require_once __DIR__ . "/../includes/models/song.php";
 
 $artist = getFromSlug($conn, "artist", $_GET["slug"]);
+$artist["songs"] = getSongSlugsByArtist($conn, $artist["artistID"]);
 
 if ($artist === false) {
     header("Location: /explore");

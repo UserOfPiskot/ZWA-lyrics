@@ -2,9 +2,9 @@
 
 function getSongs($db, $search = null, $genre = null, $style = null): mysqli_result|bool {
     $searchQuery = "
-        SELECT songs.*, artists.name AS artistName, artists.artistID AS artistID, artists.artistSlug AS artistSlug
-        FROM songs, artists
-        WHERE 1=1 AND songs.isPublic = 1 AND songs.artistID = artists.artistID
+        SELECT songs.*, artists.name AS artistName, artists.artistID AS artistID, artists.artistSlug AS artistSlug, genres.name AS genreName, styles.name AS styleName
+        FROM songs, artists, genres, styles
+        WHERE 1=1 AND songs.isPublic = 1 AND songs.artistID = artists.artistID AND songs.genreID = genres.genreID AND songs.styleID = styles.styleID;
     ";
 
     $params = [];
@@ -60,6 +60,22 @@ function getArtists($db): mysqli_result|bool {
     return $artists;
 }
 
+function getSongSlugsByArtist($db, $artistID): mysqli_result|bool {
+    $songsQuery = "
+        SELECT songs.*
+        FROM songs, artists
+        WHERE songs.artistID = ? AND songs.isPublic = 1 AND songs.artistID = artists.artistID
+    ";
+
+    $params = [$artistID];
+
+    $songs = mysqli_execute_query($db, $songsQuery, $params);
+    if (!$songs || mysqli_num_rows($songs) === 0) {
+        return false;
+    }
+    return $songs;
+}
+
 function getFromSlug($db, $type, $slug = null): array|bool    {
     $songQuery = "
         SELECT songs.*, artists.name AS artistName, artists.artistSlug AS artistSlug, users.username AS createdByUsername, users.userID AS createdByUserID
@@ -69,9 +85,8 @@ function getFromSlug($db, $type, $slug = null): array|bool    {
 
     $artistQuery = "
         SELECT artists.*, COUNT(songs.songID) AS songCount
-        FROM artists
-        LEFT JOIN songs ON artists.artistID = songs.artistID
-        WHERE artists.artistSlug = ?
+        FROM artists, songs
+        WHERE artists.artistSlug = ? AND songs.isPublic = 1 AND songs.artistID = artists.artistID
         GROUP BY artists.artistID;
     ";
 
@@ -117,6 +132,15 @@ function publishSong($db, $songID): bool {
         WHERE songID = ?;
     ";
     return mysqli_execute_query($db, $publishQuery, [$songID]);
+}
+
+function hideSong($db, $songID): bool {
+    $hideQuery = "
+        UPDATE songs
+        SET isPublic = 0
+        WHERE songID = ?;
+    ";
+    return mysqli_execute_query($db, $hideQuery, [$songID]);
 }
 
 function deleteSong($db, $songID): bool {

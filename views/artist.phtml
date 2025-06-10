@@ -3,5 +3,14 @@
         <p><?= $error ?></p>
     </div>
 <?php } else if(isset($artist)) { ?>
-    <h1><?=$artist["name"]?></h1>
-    <?php } ?>
+    <h1 class="artist-name"><?=$artist["name"]?></h1>
+    <span class="song-count">Has <?=$artist["songCount"]?> <?php echo $artist["songCount"] === 1 ?  "song" : "songs"?> on this site.</span>
+    <?php if($artist["songs"] !== false){ foreach($artist["songs"] as $song){ ?>
+        <div class="song">
+            <h2><a href="/songs/<?=$song["songSlug"]?>"><?=$song["title"]?></a></h2>
+        </div>
+    <?php } } else { ?>
+        <div class="no-songs">
+            <p>No songs available for this artist.</p>
+        </div>
+    <?php }} ?>

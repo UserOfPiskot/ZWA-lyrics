@@ -38,6 +38,15 @@ if(isset($_POST["songID"])){
                 popup("An error occurred while publishing the song!", "error");
             }
             break;
+        case "hide":
+            if(hideSong($conn, $_POST["songID"])){
+                popup("Song has been successfully hidden!", "success");
+                header("Location: /songs/" . $_GET["slug"]);
+                exit;
+            } else {
+                popup("An error occurred while hiding the song!", "error");
+            }
+            break;
         case "delete":
             if(deleteSong($conn, $_POST["songID"])){
                 popup("Song has been successfully deleted!", "success");
@@ -48,7 +57,6 @@ if(isset($_POST["songID"])){
             }
             break;
     }
-    echo "neco aspon";
 }
 
 if ($song === false) {

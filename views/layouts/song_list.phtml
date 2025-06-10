@@ -2,10 +2,18 @@
 <div class="content explore-content">
     <?php require_once __DIR__ . '/sidebar.phtml'; ?>
     <div class="song-list">
+        <div class="song-card">
+            <a class="song-artist song-part no-under" href="/artists/<?=$song["artistSlug"]?>">Artist</a>
+            <a class="song-name song-part no-under"  href="/songs/<?=$song["songSlug"]?>">Title</a>
+            <a class="song-genre song-part no-under" href="/search?genre=<?=$song["genreID"]?>">Genre</a>
+            <a class="song-style song-part no-under" href="/search?style=<?=$song["styleID"]?>">Style</a>
+        </div>
         <?php foreach($songs as $song){ ?>
         <div class="song-card">
-            <a class="song-artist" href="/artists/<?=$song["artistSlug"]?>"><?=$song["artistName"]?></a>
-            <a class="song-name"  href="/songs/<?=$song["songSlug"]?>"><?=$song["title"]?></a>
+            <a class="song-artist song-part" href="/artists/<?=$song["artistSlug"]?>"><?=$song["artistName"]?></a>
+            <a class="song-name song-part"  href="/songs/<?=$song["songSlug"]?>"><?=$song["title"]?></a>
+            <a class="song-genre song-part" href="/search?genre=<?=$song["genreID"]?>"><?=$song["genreName"]?></a>
+            <a class="song-style song-part" href="/search?style=<?=$song["styleID"]?>"><?=$song["styleName"]?></a>
         </div>
         <?php } ?>
     </div>

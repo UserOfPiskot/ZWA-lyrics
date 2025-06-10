@@ -1,5 +1,6 @@
 .explore-content {
     display: flex;
+    /*height: 100%;*/
 }
 
 .sidebar {
@@ -37,8 +38,36 @@
     margin-top: 20;
 }
 
-.song-card {
+.song-list {
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    padding: 20px;
+    /*height: 100%;*/
+}
+
+.song-card {
+    padding-left: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 80%;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.song-part {
+    width: 25%;
+}
+
+.no-under {
+    text-decoration: none;
+}
+
+.no-under:hover {
+    font-weight: normal;
 }
 
 @media screen and (max-width: 600px) {
