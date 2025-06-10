@@ -11,11 +11,11 @@
 
 .song-header::before {
     content: "";
-    position: absolute;
-    top: -10vh;
-    left: -10vw;
-    width: 110vw;
-    height: 39vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 52vh;
     background-color: inherit;
     z-index: -1;
 }

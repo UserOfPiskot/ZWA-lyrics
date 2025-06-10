@@ -6,9 +6,7 @@
     width: 20%;
     height: 100%;
     /*background-color: #0c0244;*/
-    border: 1px solid #fcfcfe;
-    border-top: none;
-    border-bottom: none;
+    border-right: 1px solid #fcfcfe;
     padding: 20px;
 }
 
