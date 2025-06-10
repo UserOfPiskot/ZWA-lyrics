@@ -3,29 +3,22 @@
             <img src="/assets/img/login-background.webp" alt="Blured background image" class="background-image">
             <form method="POST" class="session-form register">
                 <div>
-                    <div>
-                        <label for="email">Email</label>
-                        <input class="form-input" type="email" name="email" id="email" value='<?=$_SESSION["email"]??$_SESSION["email"]?>' pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" required>
-                    </div>
-                    <div class="password-line">
-                        <label for="password">Password</label>
-                        <div class="password-wrapper">
-                            <input class="form-input" type="password" name="password" id="password" placeholder="Password" value='<?=$_SESSION["password"]??$_SESSION["password"]?>' required>
-                            <canvas id="password-canvas" alt="Show password" onclick="showPassword()" class="password-toggle img-button"></canvas>
-                        </div>
-                        <input class="form-input" type="password" name="password-confirm" id="password-confirm" placeholder="Confirm Password" required>
-                    </div>
+                    <label for="username">Username</label>
+                    <input class="form-input" type="text" name="username" id="username" required>
                 </div>
                 <div>
-                    <div>
-                        <label for="username">Username</label>
-                        <input class="form-input" type="text" name="username" id="username" required>
-                    </div>
-                    <div>
-                        <label for="profilePic">Profile Picture</label>
-                        <input type="file" name="profilePic" id="profilePic">
-                    </div>
+                    <label for="email">Email</label>
+                    <input class="form-input" type="email" name="email" id="email" value='<?=$_SESSION["email"]??""?>' pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" required>
                 </div>
-                <input class="form-button-main" type="submit" value="Sign up" >
+                <div class="password-line">
+                    <label for="password">Password</label>
+                    <div class="password-wrapper">
+                        <input class="form-input" type="password" name="password" id="password" placeholder="Password" value='<?=$_SESSION["password"]??""?>' required>
+                        <canvas id="password-canvas" alt="Show password" onclick="showPassword()" class="password-toggle img-button"></canvas>
+                    </div>
+                    <input class="form-input" type="password" name="password-confirm" id="password-confirm" placeholder="Confirm Password" required>
+                </div>
+                <input class="form-button main" type="submit" value="Sign up">
+                <span class="form-button side">Already have an account? <a href="/login?backButton=1">Log in</a></span>
             </form>
         </div>

@@ -1,0 +1,45 @@
+<div class="overlay-container" id="overlay-container" onclick="closeOverlayForm()">
+        <form class="overlay-form <?=$overlayClass?>" id="<?=$overlayText?>-form" method="POST" enctype="multipart/form-data" onclick="event.stopPropagation()">
+            <input type="hidden" name="MAX_FILE_SIZE" value="<?=UPLOAD_MAX_SIZE?>">
+            <div class="overlay-desc">
+                <img class="close-form-img img-button" src="/assets/img/close-button.png" alt="Close button" onclick="closeOverlayForm()">
+                <span class="overlay-desc-text main"><?=$overlayHeader?></span>
+            </div>
+            <div class="title-wrapper">
+                <label for="title">Song title</label>
+                <input class="overlay-input" type="text" name="title" id="title" placeholder="Song Title" value="<?=$song["title"]??""?>" required>
+            </div>
+            <div class="design-wrapper">
+                <div class="selection-wrapper">
+                    <div class="color-wrapper">
+                        <label for="colorHex">Cover color</label>
+                        <input class="overlay-input color-picker" type="color" name="colorHex" id="colorHex" value="<?=$song["colorHex"]??"#000000"?>" required>
+                    </div>
+                    <div class="cover-chooser-wrapper">
+                        <label for="coverID">Cover image</label>
+                        <input class="overlay-input" type="file" name="coverID"  id="coverID" accept=<?=implode(",", ALLOWED_IMAGE_TYPES)?> onchange="updateCoverPreview(event)" <?=empty($song["songID"]) ? "required" : ""?>>
+                    </div>
+                </div>
+                <div class="image-preview-wrapper">
+                    <img class="cover-preview" src="<?=buildImagePath($song["artistID"], $song["songSlug"])?>" alt="Picture of the song cover" id="cover-preview">
+                </div>
+            </div>
+            <?php /*<!--<div>
+                <label for="artist">Artist</label>
+                <input list="artist-list" name="artist" placeholder="Start typing an artist..." required>
+                <datalist id="artist-list">
+                    <?php foreach($artists as $artist){ ?>
+                    <option value="<?=$artist["name"]?>" artist-id="<?=$artist["artistID"]?>"><?=$artist["name"]?></option>
+                    <?php } ?>
+                </datalist>
+            </div>-->*/ ?>
+            <div class="lyrics-wrapper">
+                <label for="lyrics">Lyrics</label>
+                <textarea class="overlay-input textarea" name="lyrics" id="lyrics" placeholder="Write lyrics of the song here..."><?=$song["lyrics"]??""?></textarea>
+            </div>
+            <div class="overlay-buttons">
+                <input type="button" class="overlay-button side" value="Cancel" onclick="closeOverlayForm()">
+                <input class="overlay-button main" type="submit" name="submit" value="<?=$overlayButton?>" >
+            </div>
+        </form>
+    </div>

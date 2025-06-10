@@ -1,44 +1,65 @@
-        <div class="change-account-container" id="change-account-container" onclick="closeForm()">
-            <form class="change-account-form username" id="account-username" method="POST" onclick="event.stopPropagation()">
-                <div class="account-desc">
-                    <img class="img-button" src="/assets/img/close-button.png" alt="Close button" onclick="closeForm()">
-                    <span class="account-text main">Change your username</span>
-                    <span class="account-text side">Enter a new username and your password.</span>
+        <div class="overlay-container" id="overlay-container" onclick="closeOverlayForm()">
+            <form class="overlay-form account username" id="account-username" method="POST" onclick="event.stopPropagation()">
+                <div class="overlay-desc">
+                    <img class="close-form-img img-button" src="/assets/img/close-button.png" alt="Close button" onclick="closeOverlayForm()">
+                    <span class="overlay-desc-text main">Change your username</span>
+                    <span class="overlay-desc-text side">Enter a new username and your password.</span>
                 </div>
                 <label for="username">Username</label>
-                <input class="account-input" type="text" id="username" name="username" required>
+                <input class="overlay-input" type="text" id="username" name="username" required>
                 <label for="password">Password</label>
-                <input class="account-input" type="password" id="password-username" name="password-username" required>
-                <button type="button" class="account-button side" onclick="closeForm()">Cancel</button>
-                <input class="account-button main" type="submit" name="submit" value="Change Username">
+                <input class="overlay-input" type="password" id="password-username" name="password-username" required>
+                <div class="overlay-buttons">
+                    <button type="button" class="overlay-button side" onclick="closeOverlayForm()">Cancel</button>
+                    <input class="overlay-button main" type="submit" name="submit" value="Change Username">
+                </div>
             </form>
-            <form class="change-account-form email" id="account-email" method="POST" onclick="event.stopPropagation()">
-                <div class="account-desc">
-                    <img class="img-button" src="/assets/img/close-button.png" alt="Close button" onclick="closeForm()">
-                    <span class="account-text main">Change your email</span>
-                    <span class="account-text side">Enter a new email and your password.</span>
+            <form class="overlay-form account email" id="account-email" method="POST" onclick="event.stopPropagation()">
+                <div class="overlay-desc">
+                    <img class="close-form-img img-button" src="/assets/img/close-button.png" alt="Close button" onclick="closeOverlayForm()">
+                    <span class="overlay-desc-text main">Update your email</span>
+                    <span class="overlay-desc-text side">Enter a new email and your password.</span>
                 </div>
                 <label for="email">Email</label>
-                <input class="account-input" type="text" id="email" name="email" required>
+                <input class="overlay-input" type="text" id="email" name="email" required>
                 <label for="password">Password</label>
-                <input class="account-input" type="password" id="password-email" name="password-email" required>
-                <button type="button" class="account-button side" onclick="closeForm()">Cancel</button>
-                <input class="account-button main" type="submit" name="submit" value="Change Email">
+                <input class="overlay-input" type="password" id="password-email" name="password-email" required>
+                <div class="overlay-buttons">
+                    <button type="button" class="overlay-button side" onclick="closeOverlayForm()">Cancel</button>
+                    <input class="overlay-button main" type="submit" name="submit" value="Change Email">
+                </div>
             </form>
-            <form class="change-account-form password" id="account-password" method="POST" onclick="event.stopPropagation()">
-                <div class="account-desc">
-                    <img class="img-button" src="/assets/img/close-button.png" alt="Close button"  onclick="closeForm()">
-                    <span class="account-text main">Change your password</span>
-                    <span class="account-text side">Enter your current and new password.</span>
+            <form class="overlay-form account password" id="account-password" method="POST" onclick="event.stopPropagation()">
+                <div class="overlay-desc">
+                    <img class="close-form-img img-button" src="/assets/img/close-button.png" alt="Close button"  onclick="closeOverlayForm()">
+                    <span class="overlay-desc-text main">Update your password</span>
+                    <span class="overlay-desc-text side">Enter your current and new password.</span>
                 </div>
                 <label for="password">Current Password</label>
-                <input class="account-input" type="text" id="password" name="password" required>
+                <input class="overlay-input" type="text" id="password" name="password" required>
                 <label for="password-new">New Password</label>
-                <input class="account-input" type="password" id="password-new" name="password-new" required>
+                <input class="overlay-input" type="password" id="password-new" name="password-new" required>
                 <label for="password-new-conf">Confirm New Password</label>
-                <input class="account-input" type="password" id="password-new-conf" name="password-new-conf" required>
-                <button type="button" class="account-button side" onclick="closeForm()">Cancel</button>
-                <input class="account-button main" type="submit" name="submit" value="Change Password">
+                <input class="overlay-input" type="password" id="password-new-conf" name="password-new-conf" required>
+                <div class="overlay-buttons">
+                    <button type="button" class="overlay-button side" onclick="closeOverlayForm()">Cancel</button>
+                    <input class="overlay-button main" type="submit" name="submit" value="Change Password">
+                </div>
+            </form>
+            <form class="overlay-form account delete" id="account-delete" method="POST" onclick="event.stopPropagation()">
+                <div class="overlay-desc">
+                    <img class="close-form-img img-button" src="/assets/img/close-button.png" alt="Close button"  onclick="closeOverlayForm()">
+                    <span class="overlay-desc-text main">Account deletion</span>
+                    <span class="overlay-desc-text side">Are you sure you wish to delete your account?</span>
+                </div>
+                <label for="password">Current Password</label>
+                <input class="overlay-input" type="text" id="password-delete" name="password-delete" required>
+                <label for="password-delete-conf">Confirm  Password</label>
+                <input class="overlay-input" type="password" id="password-delete-conf" name="password-delete-conf" required>
+                <div class="overlay-buttons">
+                    <button type="button" class="overlay-button side" onclick="closeOverlayForm()">Cancel</button>
+                    <input class="overlay-button main delete" type="submit" name="submit" value="Delete Account">
+                </div>
             </form>
         </div>
         <div class="content account-content">
@@ -48,17 +69,22 @@
                         <h2 class="change-data-header">Username</h2>
                         <div class="change-data-wrapper">
                             <span class="change-data-info"><?= $_SESSION["user"]["username"] ?></span>
-                            <button class="change-data-button" onclick="openForm('username')">Edit</button>
+                            <button class="change-data-button" onclick="openOverlayForm('account', 'username')">Edit</button>
                         </div>
                         <h2 class="change-data-header">Email</h2>
                         <div class="change-data-wrapper">
                             <span class="change-data-info"><?= $_SESSION["user"]["email"] ?></span>
-                            <button class="change-data-button" onclick="openForm('email')">Edit</button>
+                            <button class="change-data-button" onclick="openOverlayForm('account', 'email')">Edit</button>
                         </div>
                         <h2 class="change-data-header">Password</h2>
                         <div class="change-data-wrapper">
                             <div></div>
-                            <button class="change-data-button" onclick="openForm('password')">Change password</button>
+                            <button class="change-data-button" onclick="openOverlayForm('account', 'password')">Change password</button>
+                        </div>
+                        <h2 class="change-data-header">Account deletion</h2>
+                        <div class="change-data-wrapper">
+                            <div></div>
+                            <button class="change-data-button warning" onclick="openOverlayForm('account', 'delete')">Delete Account</button>
                         </div>
                 </div>
             </div>

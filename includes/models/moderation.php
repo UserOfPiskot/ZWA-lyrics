@@ -25,6 +25,10 @@ function getList($db, $type, $filterBy = null): mysqli_result|bool {
         ORDER BY creationTimestamp DESC
     ";
 
+    if($type !== "submissions") {
+        return false;
+    }
+
     $listQuery = match($type) {
         "reports" => $reportQuery,
         "submissions" => $sumbissionQuery,
@@ -32,7 +36,7 @@ function getList($db, $type, $filterBy = null): mysqli_result|bool {
         "audits" => $auditQuery
     };
 
-    $queryResponse = mysqli_execute_query($db, $listQuery, );
+    $queryResponse = mysqli_execute_query($db, $listQuery);
 
     if (!$queryResponse || mysqli_num_rows($queryResponse) === 0) {
         return false;

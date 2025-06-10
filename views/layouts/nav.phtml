@@ -3,15 +3,16 @@
     <form class="search-container" action="search">
         <input class="search-bar" type="text" placeholder="Enter artist or song title" id="searchTerm" name="searchTerm">
         <div class="search-button-container">
-            <input class="search-button static img-button" type="submit" value="">
-            <!--<input class="search-button active img-button" type="submit" value="">-->
+            <input class="search-button img-button" type="submit" value="">
+            <!--<input class="search-button static img-button" type="submit" value="">
+            <input class="search-button active img-button" type="submit" value="">-->
         </div>
     </form>
 
 <div class="nav-bar">
     <a class="nav-button" href="/">Home</a>
     <a class="nav-button" href="/explore">Explore</a>
-    <?php if (isset($_SESSION["user"]) && $_SESSION["user"]["role"] >= SHOW_MOD_PANEL_LEVEL) {?>
+    <?php if (isset($_SESSION["user"]) && $_SESSION["user"]["role"] >= SHOW_MODERATION) {?>
     <a class="nav-button" href="/moderation">Moderation</a>
     <?php } ?>
 </div>      

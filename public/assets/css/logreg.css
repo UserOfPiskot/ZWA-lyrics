@@ -11,6 +11,7 @@
 }
 
 .session-form {
+    width: 340px;
     position: fixed;
     inset: 0px;
     height: 20rem;
@@ -19,7 +20,7 @@
     padding: 10px;
     margin: auto;
     border-radius: 10px;
-    background-color: rgba(51, 51, 51, 0.25);
+    background-color: rgba(0, 0, 0, 0.5);
     /*background-image: linear-gradient(to bottom left, #0401b0 0%, #0c0244 2%, #b75d25 20%,  #5f1b04 75%);*/
     backdrop-filter: blur(6px);
 }
@@ -60,7 +61,7 @@
     transform: translateY(-50%);
 }
 
-.form-button-main {
+.form-button.main {
     margin: 27px 0;
     font-family: "Nunito", sans-serif;
     font-size: 1.3rem;
@@ -71,9 +72,16 @@
     border: none;
     border-radius: 20px;
 }
+.form-button.main:hover {
+    background-color: #802405;
+}
 
-@media screen and (min-width: 600px) {
+.form-button.side{
+    font-size: 1.4rem;
+}
+
+@media screen and (max-width: 600px) {
     .session-form {
-        width: 340px;
+        width: 100%;
     }
 }

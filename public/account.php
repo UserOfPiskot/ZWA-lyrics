@@ -27,13 +27,10 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])){
     : -20,
     "Change Password" => isset($_POST["password"], $_POST["password-new"])
     ? changePassword($conn, $_POST["password"], $_POST["password-new"])
-    : -30
-    /*"Change Profile Picture" => isset($_POST["password-picture"])
-    ? changePicture($conn, $_POST["password-picture"])
-    : -40,
+    : -30,
     "Delete Account" => isset($_POST["password-delete"])
-    ? deleteAccount($conn, $_POST["password-delete"])
-    : -50,*/
+    ? deleteAccount($conn, $_POST["password-delete"], $_POST["password-delete-conf"])
+    : -40
     };
 
     if(isset($response)){
@@ -66,7 +63,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])){
             case 13:
             case 23:
             case 31:
-                $errorDetails = "Password does not match";
+            case 41:
+                $errorDetails = "Password do not match";
                 break;
 
             case 12:
@@ -74,16 +72,14 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])){
             case 32:
                 $errorDetails = "New {$errorType} is the same as the old one";
                 break;
-
+            case 42:
+                $errorDetails = "Wrong password";
+                break;
             default:
                 $errorDetails = "Unknown error code:";
                 break;
         }
-        echo "<script>
-                window.addEventListener('DOMContentLoaded', () => {
-                    showToast('{$errorDetails} ({$response})', 'error');
-                });
-            </script>";
+        popup($errorDetails, "error");
     }
 }
 

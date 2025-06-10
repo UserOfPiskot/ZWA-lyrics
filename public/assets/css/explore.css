@@ -1,0 +1,55 @@
+.explore-content {
+    display: flex;
+}
+
+.sidebar {
+    width: 20%;
+    height: 100%;
+    /*background-color: #0c0244;*/
+    border: 1px solid #fcfcfe;
+    border-top: none;
+    border-bottom: none;
+    padding: 20px;
+}
+
+.button-submission {
+    font-size: 1.5rem;
+    width: 100%;
+    height: 50px;
+    background-color: #5f1b04;
+    color: #fcfcfe;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/*.overlay-form.submition{
+    height: 90%;
+}
+
+.overlay-form.editing{
+    height: 90%;
+}*/
+
+.title-wrapper {
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;
+    align-items: center;*/
+    margin-top: 20;
+}
+
+.song-card {
+    width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    .sidebar.open {
+        width: 100%;
+    }
+}

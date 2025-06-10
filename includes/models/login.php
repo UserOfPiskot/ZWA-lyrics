@@ -1,5 +1,4 @@
 <?php
-require_once __DIR__ . "/../helpers/crypto.php";
 
 /**
  * Logs in the user by checking credentials against the database.
@@ -205,4 +204,26 @@ function changePassword($db, $passwordOld, $passwordNew): int {
         return -30; // Error changing password
     }
     return -31; // Old password is incorrect
+}
+
+function deleteAccount($db, $password, $passwordConf): int {
+    $deleteAccountQuery = "
+        DELETE FROM users
+        WHERE userID = ?;
+    ";
+
+    $hashedPasswordOld = $_SESSION["user"]["passwordHash"];
+    if($password !== $passwordConf){
+        return -41; // Passwords do not match
+    }
+
+    if(checkPassword($password, $hashedPasswordOld)){
+        if(mysqli_execute_query($db, $deleteAccountQuery, [$_SESSION["user"]["userID"]])){
+            unset($_SESSION["user"]);
+            session_destroy();
+            return 1; // Account deleted successfully
+        }
+        return -40; // Error deleting account
+    }
+    return -42; // Old password is incorrect
 }

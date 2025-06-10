@@ -1,34 +1,36 @@
-<!--<div class="content reports-content">
-    <div class="reports-list">
-        <?php /*if(!is_bool($reports)) {foreach($reports as $report){ ?>
-        <div class="report-card">
-            <div><strong>ID:</strong> <?= $report["reportID"] ?></div>
-            <div><strong>Type:</strong> <?= $report["reportType"] ?></div>
-            <div><strong>Target:</strong> <?= $report["reportedID"] ?></div>
-            <div><strong>Reason:</strong> <?= htmlspecialchars($report["reason"]) ?></div>
-            <div><strong>Status:</strong> <?= $report["status"] ?></div>
-            <div><strong>Date:</strong> <?= $report["creationTimestamp"] ?></di>
+    <!--<div class="content reports-content">
+        <div class="reports-list">
+            <?php /*if(!is_bool($reports)) {foreach($reports as $report){ ?>
+            <div class="report-card">
+                <div><strong>ID:</strong> <?= $report["reportID"] ?></div>
+                <div><strong>Type:</strong> <?= $report["reportType"] ?></div>
+                <div><strong>Target:</strong> <?= $report["reportedID"] ?></div>
+                <div><strong>Reason:</strong> <?= htmlspecialchars($report["reason"]) ?></div>
+                <div><strong>Status:</strong> <?= $report["status"] ?></div>
+                <div><strong>Date:</strong> <?= $report["creationTimestamp"] ?></di>
+            </div>
+            <?php }} else {?>
+                <p>No reports found!</p>
+            <?php }*/ ?>
         </div>
-        <?php }} else {?>
-            <p>No reports found!</p>
-        <?php }*/ ?>
-    </div>
-</div>-->
-<div class="report-list">
-  <?php foreach ($reports as $report) { ?>
-  <div class="report-card">
-    <div class="report-header">
-      <span class="report-id">#<?= $report["reportID"] ?></span>
-      <span class="report-type"><?= ucfirst($report["reportType"]) ?> Reported: <?= $report["reportedUserName"] ?></span>
-    </div>
-    <div class="report-body">
-      <p class="report-reason"><?= htmlspecialchars($report["reason"]) ?></p>
-    </div>
-    <div class="report-footer">
-      <span class="report-status"><?= ucfirst($report["status"]) ?></span>
-      <span class="report-date"><?= date("Y-m-d H:i", strtotime($report["creationTimestamp"])) ?> by <?= $report["reporterID"] ?></span>
-      <button class="resolve-btn">Resolve</button>
-    </div>
-  </div>
-  <?php } ?>
+    </div>-->
+    <div class="report-list">
+    <?php if(!is_bool($reports)){ foreach ($reports as $report) { ?>
+        <div class="report-card">
+            <div class="report-header">
+                <span class="report-id">#<?= $report["reportID"] ?></span>
+                <span class="report-type"><?= ucfirst($report["reportType"]) ?> Reported: <?= $report["reportedUserName"] ?></span>
+            </div>
+            <div class="report-body">
+                <p class="report-reason"><?= htmlspecialchars($report["reason"]) ?></p>
+            </div>
+            <div class="report-footer">
+                <span class="report-status"><?= ucfirst($report["status"]) ?></span>
+                <span class="report-date"><?= date("Y-m-d H:i", strtotime($report["creationTimestamp"])) ?> by <?= $report["reporterID"] ?></s>
+                <button class="resolve-btn">Resolve</button>
+            </div>
+        </div>
+    <?php }} else { ?>
+        <p>No reports found!</p>
+    <?php } ?>
 </div>

@@ -32,6 +32,12 @@ RewriteRule ^songs/([^/]+)/?$ song.php?slug=$1 [L,QSA]
 #z /artist/jmeno -> artist.php?slug=jmeno
 RewriteRule ^artists/([^/]+)/?$ artist.php?slug=$1 [L,QSA]
 
+#z /users/jmeno -> user.php?slug=jmeno
+RewriteRule ^users/([^/]+)/?$ user.php?slug=$1 [L,QSA]
+
+# da search i explore na list.php
+RewriteRule ^(search|explore)$ list.php [L,QSA]
+
 # Nevim kamo vezme explore jako explore.php
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.php -f

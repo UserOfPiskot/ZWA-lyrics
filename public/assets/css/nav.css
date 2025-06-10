@@ -5,13 +5,14 @@ nav {
     display: flex;
     justify-content: space-between;
     /*background-color: #0c0244;*/
-    align-items: center;
     /*background-image: linear-gradient(#0c0244 41px, #b75d25, #5f1b04);*/
 }
 
 .nav-bar {
+    width: 100%;
     display: flex;
     align-items: center;
+    padding: 0 20vw;
     justify-content: space-around;
 }
 
@@ -45,15 +46,16 @@ nav {
     background-size: 25px;
     width: 25px;
     height: 25px;
+    background-image: url("../img/search-button.png");
 }
 
-.search-button.static {
+/*.search-button.static {
     background-image: url("../img/search-button.png");
 }
 
 .search-button.active {
     background-image: url("../img/search-button.gif");
-}
+}*/
 
 .user-menu {
     /*flex-grow: 0;*/

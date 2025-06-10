@@ -1,0 +1,26 @@
+<div class="sidebar">
+    <?php if(isset($_SESSION["user"]["role"]) && $_SESSION["user"]["role"] >= ADD_CONTENT) {?>
+    <?php require_once __DIR__ . "/creation_overlay.phtml";?>
+    <button class="button-submission" onclick="openOverlayForm('submit', 'form')">Add a new song</button>
+    <?php }?>
+    <div class="genre-list">
+        <h2 class="genre-list-header">Genres</h2>
+        <ul class="genre-list-ul">
+            <?php foreach($genres as $genre) { ?>
+            <li class="genre-list-item">
+                <a class="genre-list-link" href="/search?genre=<?=$genre["genreID"]?>"><?=$genre["name"]?></a>
+            </li>
+            <?php } ?>
+        </ul>
+    </div>
+    <div class="style-list">
+        <h2 class="style-list-header">Styles</h2>
+        <ul class="style-list-ul">
+            <?php foreach($styles as $style) { ?>
+            <li class="style-list-item">
+                <a class="style-list-link" href="/search?style=<?=$style["styleID"]?>"><?=$style["name"]?></a>
+            </li>
+            <?php } ?>
+        </ul>
+    </div>
+</div>
