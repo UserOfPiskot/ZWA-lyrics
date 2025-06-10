@@ -4,6 +4,7 @@ nav {
     padding: 5px;
     display: flex;
     justify-content: space-between;
+    z-index: 1;
     /*background-color: #0c0244;*/
     /*background-image: linear-gradient(#0c0244 41px, #b75d25, #5f1b04);*/
 }
