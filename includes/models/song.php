@@ -2,9 +2,9 @@
 
 function getSongs($db, $search = null, $genre = null, $style = null): mysqli_result|bool {
     $searchQuery = "
-        SELECT songs.*, artists.name AS artistName, artists.artistID AS artistID, artists.artistSlug AS artistSlug
-        FROM songs, artists
-        WHERE 1=1 AND songs.isPublic = 1 AND songs.artistID = artists.artistID
+        SELECT songs.*, artists.name AS artistName, artists.artistID AS artistID, artists.artistSlug AS artistSlug, genres.name AS genreName, styles.name AS styleName
+        FROM songs, artists, genres, styles
+        WHERE 1=1 AND songs.isPublic = 1 AND songs.artistID = artists.artistID AND genres.genreID = songs.genreID AND styles.styleID = songs.styleID
     ";
 
     $params = [];
