@@ -5,7 +5,7 @@ function getSongs($db, $search = null, $genre = null, $style = null): mysqli_res
         SELECT songs.*, artists.name AS artistName, artists.artistID AS artistID, artists.artistSlug AS artistSlug, genres.name AS genreName, styles.name AS styleName
         FROM songs, artists, genres, styles
         WHERE 1=1 AND songs.isPublic = 1 AND songs.artistID = artists.artistID AND songs.genreID = genres.genreID AND songs.styleID = styles.styleID;
-    ";
+    "; 
 
     $params = [];
     

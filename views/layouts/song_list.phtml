@@ -2,11 +2,11 @@
 <div class="content explore-content">
     <?php require_once __DIR__ . '/sidebar.phtml'; ?>
     <div class="song-list">
-        <div class="song-card">
-            <a class="song-artist song-part no-under" href="/artists/<?=$song["artistSlug"]?>">Artist</a>
-            <a class="song-name song-part no-under"  href="/songs/<?=$song["songSlug"]?>">Title</a>
-            <a class="song-genre song-part no-under" href="/search?genre=<?=$song["genreID"]?>">Genre</a>
-            <a class="song-style song-part no-under" href="/search?style=<?=$song["styleID"]?>">Style</a>
+        <div class="song-card preview">
+            <a class="song-artist song-part" href="">Artist</a>
+            <a class="song-name song-part"  href="">Title</a>
+            <a class="song-genre song-part" href="">Genre</a>
+            <a class="song-style song-part" href="">Style</a>
         </div>
         <?php foreach($songs as $song){ ?>
         <div class="song-card">
