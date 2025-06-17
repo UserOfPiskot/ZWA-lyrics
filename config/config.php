@@ -14,7 +14,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 mysqli_set_charset($conn, "UTF8");*/
-$conn = mysqli_connect("localhost", "vps", "Vf-9^9$TrKsqm^V", "lyrical_db");
+$conn = mysqli_connect("localhost", "vps0", "Vf-9^9$TrKsqm^V", "lyrical_db");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
