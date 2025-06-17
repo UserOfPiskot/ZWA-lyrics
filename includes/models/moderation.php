@@ -25,7 +25,14 @@ function getList($db, $type, $filterBy = null): mysqli_result|bool {
         ORDER BY creationTimestamp DESC
     ";
 
-    if($type !== "submissions") {
+    $usersQuery = "
+        SELECT *
+        FROM users
+        WHERE users.userID <> 0
+        ORDER BY creationTimestamp DESC
+    ";
+
+    if(($type !== "submissions") && ($type !== "users")) {
         return false;
     }
 
@@ -33,7 +40,8 @@ function getList($db, $type, $filterBy = null): mysqli_result|bool {
         "reports" => $reportQuery,
         "submissions" => $sumbissionQuery,
         "flagged" => $flaggedQuery,
-        "audits" => $auditQuery
+        "audits" => $auditQuery,
+        "users" => $usersQuery
     };
 
     $queryResponse = mysqli_execute_query($db, $listQuery);
@@ -43,4 +51,24 @@ function getList($db, $type, $filterBy = null): mysqli_result|bool {
     } else {
         return $queryResponse;
     }
+}
+
+function roleNumToText($num){
+    return match($num) {
+        0 => "Banned",
+        1 => "User",
+        2 => "Moderator",
+        3 => "Admin",
+        4 => "Super Admin",
+        default => "Unknown"
+    };
+
+}
+
+function changeRole($db, $userID, $promotion){
+
+}
+
+function banUser($db, $userID){
+
 }

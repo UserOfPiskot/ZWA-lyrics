@@ -24,8 +24,9 @@
 }
 
 .report-card {
-    background: #0c0244;
-    border: 1px solid #0401b0;
+    background: #4e3166ad;
+    backdrop-filter: blur(6px);
+    border: 1px solid #fcfcfe;
     /*background: #605db0;
     border: 1px solid #b0b0d8;*/
     padding: 1rem;

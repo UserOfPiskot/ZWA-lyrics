@@ -6,21 +6,29 @@ require_once __DIR__ . "/../includes/models/song.php";
 
 $song = getFromSlug($conn, "song", $_GET["slug"]);
 
+function songCorrectlyUploaded($slug){
+    popup("Song has been successfully updated!", "success");
+    header("Location: /songs/" . $slug);
+    exit;
+}
+
 if(isset($_POST["title"])){
     if(editSong($conn, $song["songID"], $_POST["title"], $_POST["lyrics"], $_POST["colorHex"])){
-        $insertedSongID = 1;
+        $insertedArtistID = 1;
         if(!file_exists(UPLOAD_PATH . "covers")) {
-            if(!mkdir(UPLOAD_PATH . "covers/" . $insertedSongID, /*0755, true*/)) {
+            if(!mkdir(UPLOAD_PATH . "covers/" . $insertedArtistID, /*0755, true*/)) {
                 popup("Error creating cover folder!", "error");
                 exit;
             }
         }
-        if(fileMover("covers/", $insertedSongID, slugify($_POST["title"]))){
-            popup("Song has been successfully updated!", "success");
-            header("Location: /songs/" . $_GET["slug"]);
-            exit;
+        if (isset($_FILES["coverID"]) && $_FILES["coverID"]["error"] == UPLOAD_ERR_OK){
+            if(fileMover("covers/", $insertedArtistID, slugify($_POST["title"]))){
+                songCorrectlyUploaded($_GET["slug"]);
+            } else {
+                popup("An error occurred while uploading the cover!", "error");
+            }
         } else {
-            popup("An error occurred while uploading the cover!", "error");
+            songCorrectlyUploaded($_GET["slug"]);
         }
     } else {
         popup("An error occurred while updating the song!", "error");

@@ -10,6 +10,21 @@ if(empty($_SESSION["user"])) {
 
 require_once __DIR__ . "/../includes/models/moderation.php";
 
+if(isset($_POST["userID"])){
+    $userID = $_POST["userID"];
+    switch($_POST["action"]){
+        case "promote":
+            changeRole($conn, $userID, true);
+            break;
+        case "demote":
+            changeRole($conn, $userID, false);
+            break;
+        case "ban":
+            banUser($conn, $userID);
+            break;
+    }
+}
+
 $title = WEB_NAME;
 
 function checkPermission($requiredRole) {
@@ -43,6 +58,7 @@ if(empty($_GET["tab"])) {
             break;
         case "promote":
             checkPermission(ADMIN_ROLE);
+            $users = getList($conn, "users");
             require_once __DIR__ . "/../views/moderation/promote.phtml";
             break;
         case "audits":
